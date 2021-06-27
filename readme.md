@@ -26,6 +26,7 @@ using docker-compose
 endpoint
 - twitter
 ```http://localhost:3000/twitter```
+```http://localhost:3000/twitter/feeds?user_name=amandaputrimau3```
 - order page
 ```http://localhost:3000/order```
 - order pivot page
