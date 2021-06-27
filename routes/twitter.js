@@ -55,7 +55,6 @@ router.get('/feeds', async function(req, res, next) {
   }
   if(last_id) params['max_id']=last_id
   if(user_name) params['user_name']=user_name
-  console.log(params)
   let result = await twitter.user_timeline(params)
   // let result = []
   // resp.forEach(dt => {
