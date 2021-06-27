@@ -1,14 +1,19 @@
 Instalation instruction
-1. ```npm i```
 
-before you run this command, you need to setup .env
-2. ```npm run start```
+```npm i```
+
+before you run this command, you need to setup .env (seed & start)
+
+```npm run start```
 
 
 to start the development application
-3. ```npm run dev```
 
+```npm run dev```
 
+to insert seed data
+
+```npm run seed```
 
 using docker-compose
 
