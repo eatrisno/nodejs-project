@@ -1,5 +1,6 @@
 var express = require('express');
 var faker = require("faker");
+var twitter = require("../src/twitter");
 var router = express.Router();
 
 let dummy_amount = 100;
@@ -41,6 +42,33 @@ router.get('/', async function(req, res, next) {
   let param = await parseLimitPage(limit, page)
   let data = await getTwit(param.start, param.end)
   res.render('twitter', { title: 'Twitter feeds', data: data, page: page , limit: limit});
+});
+
+
+router.get('/feeds', async function(req, res, next) {
+  const user_name = req.query.user_name ? req.query.user_name : null
+  const last_id = parseInt((req.query.last_id ? req.query.last_id : null))
+
+  var params = {
+    result_type: 'recent',
+    count: 6,
+  }
+  if(last_id) params['max_id']=last_id
+  if(user_name) params['user_name']=user_name
+  console.log(params)
+  let result = await twitter.user_timeline(params)
+  // let result = []
+  // resp.forEach(dt => {
+  //   let ob = {
+  //     id: dt.id,
+  //     text: dt.text,
+  //     created_at: dt.created_at,
+  //   }
+  //   result.push(ob)
+  // });
+  // res.send(result)
+  let new_last_id = result[result.length-1].id
+  res.render('twitter_feed', { title: 'Twitter feeds', data: result, last_id: new_last_id});
 });
 
 module.exports = router;

@@ -8,7 +8,6 @@
     "dev": "env=development nodemon ./bin/www",
     "create-db": "export $(cat .env | xargs) && psql < schema.pgsql",
     "seed": "npm run create-db && node seed.js"
-
   },
   "development": {
     "nodemon": "~^2.0.7"

@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    h1= title
+    p current page : #{page}
+    main
+    .container              
+      table(width='100%', cellspacing='0', border='1', bgcolor='#F2F2F2')
+        thead
+        tr
+            td id
+            th Text
+            th Created Date
+        tbody
+        each row in data
+            tr
+                td #{row.id}
+                td #{row.text}
+                td #{row.created_at}
+
+    a(href="/twitter/feeds?last_id=" + `${last_id}`)
+        button(type="button") Next Page
