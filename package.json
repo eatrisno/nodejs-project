@@ -1,0 +1,29 @@
+{
+  "name": "myapp",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "npm run seed && node ./bin/www",
+    "pm2": "pm2 start processes.json --no-daemon --watch",
+    "dev": "env=development nodemon ./bin/www",
+    "create-db": "export $(cat .env | xargs) && psql < schema.pgsql",
+    "seed": "npm run create-db && node seed.js"
+
+  },
+  "development": {
+    "nodemon": "~^2.0.7"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "dotenv": "^10.0.0",
+    "express": "~4.16.1",
+    "faker": "^5.5.3",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "pg": "^8.6.0",
+    "pm2": "^5.1.0",
+    "pug": "2.0.0-beta11",
+    "twitter": "^1.7.1"
+  }
+}

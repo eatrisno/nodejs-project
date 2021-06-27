@@ -1,0 +1,26 @@
+extends layout
+
+block content
+    h1= title
+    p current page : #{page}
+    main
+    .container              
+      table(width='100%', cellspacing='0', border='1', bgcolor='#F2F2F2')
+        thead
+        tr
+            th Full Name
+            th User Name
+            th Created Date
+            th Text
+        tbody
+        each row in data
+            tr
+                td #{row.first_name} #{row.last_name}
+                td #{row.user_name}
+                td #{row.created_date}
+                td #{row.text}
+
+    a(href="/twitter?page=" + `${page-1}`+ '&limit='+ `${limit}`)
+        button(type="button") Prev Page
+    a(href="/twitter?page=" + `${page+1}`+ '&limit='+ `${limit}`)
+        button(type="button") Next Page

@@ -1,0 +1,20 @@
+extends layout
+
+block content
+    main
+    .container              
+      table(width='100%', cellspacing='0', border='1', bgcolor='#F2F2F2')
+        thead
+        tr
+        each row in header
+            
+            th #{row}
+        tbody
+        each row in data
+            tr
+                each rw,rt in row 
+                    td #{rw}
+
+    br
+    a(href="/order")
+        button(type="button") ORDER

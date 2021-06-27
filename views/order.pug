@@ -1,0 +1,26 @@
+extends layout
+
+block content
+    main
+    .container              
+      table(width='100%', cellspacing='0', border='1', bgcolor='#F2F2F2')
+        thead
+        tr
+            th Full Name
+            th Email
+            th Item
+            th Price
+            th Quantity
+            th Total Price
+        tbody
+        each row in data
+            tr
+                td #{row.first_name} #{row.last_name}
+                td #{row.email}
+                td #{row.item}
+                td #{row.price}
+                td #{row.quantity}
+                td #{row.total_price}
+    br
+    a(href="/order/pivot")
+        button(type="button") PIVOT
