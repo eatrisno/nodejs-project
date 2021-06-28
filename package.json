@@ -6,7 +6,7 @@
     "start": "npm run seed && node ./bin/www",
     "pm2": "pm2 start processes.json --no-daemon --watch",
     "dev": "env=development nodemon ./bin/www",
-    "create-db": "export $(cat .env | xargs) && psql < schema.pgsql",
+    "create-db": "export $(cat .env | xargs) && psql -d postgres < schema.pgsql",
     "seed": "npm run create-db && node seed.js",
     "test": "mocha"
   },
