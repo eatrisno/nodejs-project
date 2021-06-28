@@ -1,7 +1,5 @@
 const Twitter = require('twitter');
 const { twitter } = require('../config');
-// consumer_key, consumer_secret, access_token_key, access_token_secret = twitter;
-
 const client = new Twitter(twitter);
 
 module.exports = {
@@ -10,5 +8,8 @@ module.exports = {
     },
     user_timeline: (params) => {
         return client.get('statuses/user_timeline', params)
+        .catch(e =>{ 
+            console.log('error:', e);
+        })
     }
 };
