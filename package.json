@@ -7,7 +7,8 @@
     "pm2": "pm2 start processes.json --no-daemon --watch",
     "dev": "env=development nodemon ./bin/www",
     "create-db": "export $(cat .env | xargs) && psql < schema.pgsql",
-    "seed": "npm run create-db && node seed.js"
+    "seed": "npm run create-db && node seed.js",
+    "test": "mocha"
   },
   "development": {
     "nodemon": "~^2.0.7"
@@ -19,6 +20,7 @@
     "express": "~4.16.1",
     "faker": "^5.5.3",
     "http-errors": "~1.6.3",
+    "mocha": "^9.0.1",
     "morgan": "~1.9.1",
     "pg": "^8.6.0",
     "pm2": "^5.1.0",
